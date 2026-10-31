@@ -37,7 +37,7 @@ export default async function SettingsPage({ searchParams }: { searchParams: Pro
           <Field label="Тайлбар">
             <textarea name="hero_subtitle" rows={3} defaultValue={s.hero_subtitle} className="admin-input" />
           </Field>
-          <Field label="Арын зураг (5MB хүртэл, хэвтээ зураг)">
+          <Field label="Арын зураг (4MB хүртэл, хэвтээ зураг)">
             {s.hero_image && (
               // eslint-disable-next-line @next/next/no-img-element
               <img src={s.hero_image} alt="" className="mb-3 h-40 w-full rounded-xl object-cover" />

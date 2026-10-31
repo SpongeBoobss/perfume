@@ -7,7 +7,8 @@ import { requireAdmin } from "@/lib/admin";
 import { createSessionClient } from "@/lib/supabase/server";
 import { ORDER_STATUSES, type OrderStatus } from "@/lib/types";
 
-const MAX_IMAGE_BYTES = 5 * 1024 * 1024;
+// Vercel rejects request bodies over 4.5MB, so uploads stay safely under it.
+const MAX_IMAGE_BYTES = 4 * 1024 * 1024;
 
 function text(form: FormData, key: string) {
   return String(form.get(key) ?? "").trim();
@@ -25,7 +26,7 @@ async function uploadImage(form: FormData, key: string, folder: string, fallback
   const file = form.get(key);
   if (!(file instanceof File) || file.size === 0) return fallback;
   if (!file.type.startsWith("image/")) throw new Error("Зөвхөн зураг оруулна уу.");
-  if (file.size > MAX_IMAGE_BYTES) throw new Error("Зураг 5MB-аас бага байх ёстой.");
+  if (file.size > MAX_IMAGE_BYTES) throw new Error("Зураг 4MB-аас бага байх ёстой.");
 
   const { supabase } = await requireAdmin();
   const ext = file.name.split(".").pop()?.toLowerCase().replace(/[^a-z0-9]/g, "") || "jpg";

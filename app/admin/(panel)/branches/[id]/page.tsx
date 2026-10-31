@@ -55,7 +55,7 @@ export default async function BranchEditPage({ params }: { params: Promise<{ id:
               <input name="hours" defaultValue={b?.hours} className="admin-input" placeholder="10:00–20:00" />
             </Field>
           </div>
-          <Field label="Зураг (5MB хүртэл)">
+          <Field label="Зураг (4MB хүртэл)">
             {b?.image_url && (
               // eslint-disable-next-line @next/next/no-img-element
               <img src={b.image_url} alt="" className="mb-3 h-32 w-full rounded-xl object-cover" />

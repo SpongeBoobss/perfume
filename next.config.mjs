@@ -15,7 +15,7 @@ const nextConfig = {
   },
   experimental: {
     // Admin image uploads go through server actions.
-    serverActions: { bodySizeLimit: "6mb" },
+    serverActions: { bodySizeLimit: "4.5mb" },
   },
 };
 
