@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --header-h: 4.5rem;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-paper font-sans text-ink antialiased;
+    font-feature-settings: "kern", "liga";
+    text-rendering: optimizeLegibility;
+  }
+
+  section[id] {
+    scroll-margin-top: var(--header-h);
+  }
+
+  ::selection {
+    background: #ead9b4;
+    color: #141414;
+  }
+
+  :focus-visible {
+    outline: 1px solid #8a6a35;
+    outline-offset: 4px;
+  }
+
+  .bg-noir :focus-visible {
+    outline-color: #c9a462;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .container-site {
+    @apply mx-auto w-full max-w-site px-6 sm:px-10 lg:px-14;
+  }
+
+  /* Small English caption set in italic serif — the site's secondary voice. */
+  .caption-serif {
+    @apply font-serif text-lg italic text-gold-deep;
+  }
+
+  .body-copy {
+    @apply text-[0.975rem] leading-[1.8] text-stone;
+  }
+
+  .bg-noir .caption-serif {
+    @apply text-gold-bright;
+  }
+
+  .bg-noir .body-copy {
+    @apply text-noir-mute;
+  }
+
+  /* ── Admin form controls ── */
+  .admin-card {
+    @apply rounded-2xl border border-line bg-paper p-5 sm:p-7;
+  }
+
+  .admin-label {
+    @apply mb-1.5 block text-[0.8rem] font-medium text-ink;
+  }
+
+  .admin-input {
+    @apply w-full rounded-xl border border-line bg-paper px-3.5 py-2.5 text-[0.92rem] text-ink outline-none transition-colors placeholder:text-stone/60 focus:border-ink;
+  }
+
+  .admin-btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-ink px-5 py-2.5 text-[0.85rem] font-medium text-paper transition-opacity hover:opacity-85 disabled:opacity-50;
+  }
+
+  .admin-btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-line px-4 py-2 text-[0.82rem] text-ink transition-colors hover:bg-cream;
+  }
+
+  /* Brushed-metal gold — for large type and fills only, never small text. */
+  .gold-foil {
+    background-image: linear-gradient(
+      100deg,
+      #8a6a35 0%,
+      #c39c58 25%,
+      #e8cf98 45%,
+      #a8823f 65%,
+      #d2b06e 82%,
+      #8a6a35 100%
+    );
+  }
+
+  .text-gold-foil {
+    @apply gold-foil bg-clip-text text-transparent;
+  }
+
+  /* Soft vignette glow that gives the noir sections depth instead of flat black. */
+  .noir-glow {
+    background-image: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(201, 164, 98, 0.07), transparent 70%);
+  }
+}
+
+@layer utilities {
+  .marker-pulse {
+    animation: marker-pulse 2.4s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  }
+
+  @keyframes marker-pulse {
+    0% {
+      transform: scale(0.6);
+      opacity: 0.7;
+    }
+    100% {
+      transform: scale(2.4);
+      opacity: 0;
+    }
+  }
+}
