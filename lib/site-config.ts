@@ -14,7 +14,7 @@ export const siteConfig = {
   slogan: "Таны үнэртэн. Таны сонголт. Бидний үйлчилгээ.",
 
   /** Replace with the real domain before deploying (used for SEO, sitemap, Open Graph). */
-  url: "https://example.com",
+  url: "https://unerten.shop",
 
   description:
     "Original Perfume — дэлхийн алдартай брэндүүдийн 100% оригинал үнэртнийг АНУ-аас импортлон, бэлэн болон захиалгаар Монголын хэрэглэгчдэд хүргэнэ. Орон нутгийн дэлгүүрүүдэд бөөний нийлүүлэлт хийдэг.",
